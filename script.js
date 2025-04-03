@@ -22,12 +22,25 @@ clickMe.addEventListener("click", function(){
 document.getElementById("randomColorBtn").addEventListener("click", changeBackgroundColor);
 
 function changeBackgroundColor(){
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
+    let letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
         color += letters[Math.floor(Math.random() * 16)];
     }
+    console.log(color)
     
     document.querySelector("body").style.backgroundColor = color;
 
+}
+
+document.getElementById("dark").addEventListener("click", dark)
+
+function dark(){
+    document.querySelector("body").classList.toggle("darkBody");
+    if(document.querySelector("#dark").innerText === "Dark Mode"){
+        document.querySelector("#dark").innerText = "Light Mode"
+    }else{
+        document.querySelector("#dark").innerText = "Dark Mode"
+    }
+    
 }
