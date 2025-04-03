@@ -10,7 +10,24 @@ document.addEventListener("keydown", function(e){
     directionElement.innerText = `The key you pressed is ${e.code}`;
 })
 
-document.addEventListener("click", function(){
-    let clickMe = document.getElementById("clickMe");
+let clickMe = document.getElementById("clickMe")
+
+clickMe.addEventListener("click", function(){
+    ;
     clickMe.innerText = "You clicked me!";
 })
+
+
+
+document.getElementById("randomColorBtn").addEventListener("click", changeBackgroundColor);
+
+function changeBackgroundColor(){
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    
+    document.querySelector("body").style.backgroundColor = color;
+
+}
