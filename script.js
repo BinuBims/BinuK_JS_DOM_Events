@@ -1,19 +1,29 @@
+//When the dom is fully loaded, this will be fired
 document.addEventListener("DOMContentLoaded", function(){
-    let onLoadElement = document.getElementById("onload");
 
-    onLoadElement.innerHTML = "<h1> I loaded because the DOM was fully rendered.</h1>"
+    //Get the element with an id of onload
+    let onLoadEl = document.getElementById("onload");
+   
+    //Add some HTML within the element we grabbed
+    onLoadEl.innerHTML = "<h1> I loaded cause the DOM was fully loaded</h1>"
+   
+   })
+
+   
+//Get the element that will show our key code
+let directionEl = document.getElementById("direction");
+
+// Can be changed with Key press or key up depending on what you might need
+document.addEventListener("keydown", function(e) {
+
+ // When a key is pressed, the element with the id of direction will show the message
+ directionEl.innerText = `The Key you pressed is ${e.code}`;
+
 });
-
-document.addEventListener("keydown", function(e){
-    let directionElement = document.getElementById("direction");
-
-    directionElement.innerText = `The key you pressed is ${e.code}`;
-})
 
 let clickMe = document.getElementById("clickMe")
 
 clickMe.addEventListener("click", function(){
-    ;
     clickMe.innerText = "You clicked me!";
 })
 
@@ -44,3 +54,9 @@ function dark(){
     }
     
 }
+
+function changeBtnStyle() {
+    const btn = document.querySelector(".cool-btn")
+    btn.classList.toggle("glow"); // Toggles glow effect
+   }
+   

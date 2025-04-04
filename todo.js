@@ -19,21 +19,22 @@
 const taskInput = document.getElementById("taskInput");
 const addTaskButton = document.getElementById("addTask");
 const taskList = document.getElementById("taskList");
-// const listItems = document.querySelector("span");
+
 
 
 addTaskButton.addEventListener("click",addTask);
-// listItems.forEach(item => item.addEventListener("click", itemComplete))
+
+//addeventlistener was added to <ul id="taskList"></ul> because addEventListener could not be added to the newly created <li></li> items inside the ul
 taskList.addEventListener("click", itemComplete);
 
 
+//this function will trigger everytime when someone click an item inside the unorder list
 function itemComplete(e){
     e.target.classList.toggle("itemComplete")
-
-//     e.target.classList.toggle("itemComplete")
-//     // document.querySelector("span").classList.add("itemComplete")
 }
 
+
+//extra <span> elements were added inside the <li> because when you use css to add background color, it goes across the whole page. so span was added and then background color was added to that span.
 function createListItem(taskText){
     const listItem = document.createElement('li');
     const listSpan = document.createElement('span')
