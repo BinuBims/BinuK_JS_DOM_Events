@@ -19,12 +19,26 @@
 const taskInput = document.getElementById("taskInput");
 const addTaskButton = document.getElementById("addTask");
 const taskList = document.getElementById("taskList");
+// const listItems = document.querySelector("span");
+
 
 addTaskButton.addEventListener("click",addTask);
+// listItems.forEach(item => item.addEventListener("click", itemComplete))
+taskList.addEventListener("click", itemComplete);
+
+
+function itemComplete(e){
+    e.target.classList.toggle("itemComplete")
+
+//     e.target.classList.toggle("itemComplete")
+//     // document.querySelector("span").classList.add("itemComplete")
+}
 
 function createListItem(taskText){
     const listItem = document.createElement('li');
-    listItem.innerText = taskText;
+    const listSpan = document.createElement('span')
+    listSpan.innerHTML = taskText;
+    listItem.appendChild(listSpan);
     return listItem
 
 }
@@ -33,8 +47,8 @@ function addTask(){
    
     const taskText = taskInput.value;
     const listItem = createListItem(taskText);
-    let test = "<li>test</li>"
     taskList.appendChild(listItem);
     taskInput.value = "";
 
 }
+
